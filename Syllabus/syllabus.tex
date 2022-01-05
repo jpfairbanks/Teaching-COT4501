@@ -1,0 +1,202 @@
+\documentclass[11pt, article, oneside]{memoir}
+
+\settrims{0pt}{0pt} % page and stock same size
+\settypeblocksize{*}{34.5pc}{*} % {height}{width}{ratio}
+\setlrmargins{*}{*}{1} % {spine}{edge}{ratio}
+\setulmarginsandblock{1in}{1in}{*} % height of typeblock computed
+\setheadfoot{\onelineskip}{2\onelineskip} % {headheight}{footskip}
+\setheaderspaces{*}{1.5\onelineskip}{*} % {headdrop}{headsep}{ratio}
+\checkandfixthelayout
+
+\def\bhline{\Xhline{2\arrayrulewidth}}
+\def\bbhline{\Xhline{2.5\arrayrulewidth}}
+
+
+\usepackage{amssymb, amsmath,amsthm,amscd,txfonts,wasysym,stmaryrd,setspace}
+\usepackage{booktabs}
+\usepackage{enumerate,makecell}
+\usepackage{makeidx,tabularx}
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage[bookmarks=true, colorlinks=true, linkcolor=MidnightBlue, citecolor=cyan, urlcolor=blue!50!black]{hyperref}
+\usepackage{lmodern}
+\usepackage{graphicx,float}
+\usepackage{tikz}
+\usepackage{multirow}
+\usetikzlibrary{matrix,arrows}
+\usepackage{geometry}
+\newgeometry{left=1in,right=1in,top=1.4in,bottom=1.4in}
+%\usepackage{fullpage}
+%\usepackage{hyperref}
+%\DeclareRobustCommand{\href}[2]{#2\footnote{\url{#1}}}
+\begin{document}
+
+\title{\vspace{-2.5cm}Syllabus for \emph{COT 4501 Numerical Analysis: A Computational Approach}}
+\author{Dr. James Fairbanks}
+\date{\today}
+\maketitle
+
+\chapter{Basic information}
+
+\vspace{.1in}
+
+\begin{tabular}{ll}
+
+Course:& COT 4501\\
+Section:&  \\
+Class Dates:&Jan 6 -- Apr 29, 2022 \\
+Class Time:& R Period 4 - 5 (10:40 AM - 12:35 PM) \\
+           & T Period 4 (10:40 AM - 11:30 AM) \\
+Office Hours:& T\quad Period 5 (11:30 AM -- 12:35 PM)\\
+Meeting Room:& Pugh Hall 170\\
+Final Exam Period:& Apr 29 2022 \@ 7:30 AM - 9:30 AM\\
+Instructor:& Dr. James Fairbanks\\
+Office:& CISE-470\\
+Phone:& -6687\\
+Email:& fairbanksj\\
+
+Teaching Assistant:& Jeremy Youngquist\\
+Email: & jyoungquist\\
+Office Hours: & M \quad 2 PM \\
+
+&\\
+Grading: & A-F (3 Credits) Standard UF scale\\
+&Class participation: 5\%\\
+&Homework: 25\%\\
+&Quizzes: 20\%\\
+&Exams: 25\%\\
+&Project: 25\%
+\end{tabular}
+
+\section{Course Description}
+
+From the undergraduate catalog:
+\emph{
+Numerical integration, nonlinear equations, linear and nonlinear systems of equations, differential equations and interpolation.
+}
+
+
+\section{Course Pre-Requisites}
+Prerequisites: (COP 3504 or COP 3503) and MAS 3114 Computational Linear Algebra.
+
+\section{Course Objectives}
+
+The goal of this course is to teach you the fundamentals of computational numerical methods. We will solve the primary types of equations necessary for scientific discovery and engineering invention. Linear Systems, Least-Squares Problems, Nonlinear Equations, and Differential Equations will all be covered. Diligent students will learn to implement these algorithms in the Julia programming language, and become proficient in deploying them to solve scientific and engineering problems. Projects will help you learn to identify the need for numerical methods in a applied setting.
+
+\section{Textbook}
+
+Required Book: Driscoll \& Braun Fundamentals of Numerical Computation. Society for Industrial and Applied Mathematics, Philadelphia, 2018.
+
+The textbook is available from the publisher at \href{https://my.siam.org/Store/Product/viewproduct/?ProductId=29215528}{The SIAM Store}. UF is an institutional member of SIAM. We will be using the Julia resources by the author \href{https://github.com/tobydriscoll/FundamentalsNumericalComputation.jl}{on GitHub}.
+ 
+See \href{https://www.bsd.ufl.edu/textadoption/Manage/ViewAnAdoption.aspx?adoptId=300159}{UF Textbook Adoptions} for details.
+\section{Materials and Supplies Fees}
+None
+ 
+\section{Tentative Schedule}
+We will cover the first section of the book. Students are encouraged to read the section section for course project inspiration. Homework and Exam dates will be updated as needed. 
+
+\begin{center}
+\begin{tabular}{lll}\toprule
+\textbf{Week}&\textbf{Topic}&\textbf{Notes}\\\midrule
+1 -- 2&Chapter 1&\parbox{2.2in}{\vspace{.05in}\vspace{.05in}}\\\midrule
+3 -- 6&Chapter 2& HW 1 due\\\midrule
+7 -- 8&Chapter 3& HW 2 due\\\midrule
+9 & Exam & Covers Ch 1-3 \\\midrule
+9 -- 12&Chapter 4& HW 3 due\\\midrule
+13 -- 14&Chapter 5& Project Check-ins \\\midrule
+15 -- 15&Chapter 6& HW 4 due\\\midrule 
+15 -- 17&Exam and Additional Topics&\\\midrule
+Apr 29 & Final Project & Presentation and Report Due \\\bottomrule
+\end{tabular}
+\end{center}
+
+In week 8, the Exam will be given on Thursday. Quizzes will be given at the beginning of class. The schedule is subject to change. 
+
+\section{Attendance Policy}
+You are expected to attend all classes. Hyflex participation is encouraged for students who are exhibiting symptoms of contagious illness. Students withheld from class due to UF Screen and Protect status cannot participate in-person. Class participation is a grading component so active participation which includes asking questions, answering questions, engaging in discussion with other students, active note taking, and canvas disscussion posts. If you need to miss class, please let me know via email 24 hours in advance.
+
+If a student who is withheld from campus attends class, the student will be asked to leave the classroom and be reported to the Dean of Students Office.
+Excused absences must be consistent with university policies in the Catalog and require appropriate documentation.  Additional information can be found in the university \href{https://catalog.ufl.edu/UGRD/academic-regulations/attendance-policies/}{Attendance Policies}. This policy may change in response to administration guidance.
+\chapter{What to do immediately}
+
+\begin{enumerate}
+\item Access the course webpage
+\item Read the preface, prologue, and Chapter 1 of the textbook.
+\item Get started with \href{https://julialang.org/}{Julia} and the \href{https://julialang.org/learning/}{Tutorials}.
+\item Enroll in \href{https://education.github.com}{GitHub Education} if you have not already done so for another class.
+\item Introduce yourself to your classmates
+\end{enumerate}
+
+\chapter{Grading}
+
+Attending lecture is mandatory, unless you have prior permission from an instructor. Class participation part of your grade. How to participate? Ask questions! It's crucial that you ask questions when you don't understand.
+
+Homework will be collected, at the beginning of the class sessions listed above. Late homework will generally not be accepted. Just turn in what you have finished at the time the homework is due.
+
+Grade reviews must be requested within one week of a grade being posted. After two weeks, no grade will be revisited. In the event of a grade review, the entire assignment will be reviewed.
+
+\chapter{Rules, Regulations, and Resources}
+
+\section{Students Requiring Accommodations}
+Students with disabilities who experience learning barriers and would like to request academic accommodations should connect with the Disability Resource Center. It is important for students to share their accommodation letter with their instructor and discuss their access needs, as early as possible in the semester.
+
+\section{Course Evaluation}
+Students are expected to provide professional and respectful feedback on the quality of instruction in this course by completing course evaluations online via GatorEvals. Click here for guidance on how to give feedback in a professional and respectful manner. Students will be notified when the evaluation period opens, and can complete evaluations through the email they receive from GatorEvals, in their Canvas course menu under GatorEvals, or via ufl.bluera.com/ufl/. Summaries of course evaluation results are available to students here.
+
+
+\section{University Honesty Policy}
+UF students are bound by The Honor Pledge which states, 
+\begin{quote}
+    We, the members of the University of Florida community, pledge to hold ourselves and our peers to the highest standards of honor and integrity by abiding by the Honor Code. On all work submitted for credit by students at the University of Florida, the following pledge is either required or implied: “On my honor, I have neither given nor received unauthorized aid in doing this assignment.
+\end{quote}
+
+The \href{https://sccr.dso.ufl.edu/policies/student-honor-code-student-conduct- code/}{Honor Code} specifies a number of behaviors that are in violation of this code and the possible sanctions. Furthermore, you are obligated to report any condition that facilitates academic misconduct to appropriate personnel. If you have any questions or concerns, please consult with the instructor class.
+
+\section{Commitment to a Safe and Inclusive Learning Environment}
+The Herbert Wertheim College of Engineering values broad diversity within our community and is committed to individual and group empowerment, inclusion, and the elimination of discrimination. It is expected that every person in this class will treat one another with dignity and respect regardless of gender, sexuality, disability, age, socioeconomic status, ethnicity, race, and culture.
+If you feel like your performance in class is being impacted by discrimination or harassment of any kind, please contact your instructor or any of the following:
+\begin{itemize}
+\item  Your academic advisor or Graduate Program Coordinator
+\item Robin Bielling, Director of Human Resources, 352-392-0903, \url{rbielling@eng.ufl.edu}
+\item Curtis Taylor, Associate Dean of Student Affairs, 352-392-2177, \url{taylor@eng.ufl.edu}
+\item Toshikazu Nishida, Associate Dean of Academic Affairs, 352-392-0943, \url{nishida@eng.ufl.edu}
+\end{itemize}
+
+\section{Software Use}
+All faculty, staff, and students of the University are required and expected to obey the laws and legal agreements governing software use. Failure to do so can lead to monetary damages and/or criminal penalties for the individual violator. Because such violations are also against University policies and rules, disciplinary action will be taken as appropriate. We, the members of the University of Florida community, pledge to uphold ourselves and our peers to the highest standards of honesty and integrity.
+
+\section{Student Privacy}
+There are federal laws protecting your privacy with regards to grades earned in courses and on individual assignments. For more information, please see: \url{https://registrar.ufl.edu/ferpa.html}
+
+\section{Campus Resources:}
+\subsection{Health and Wellness}
+\begin{itemize}
+\item U Matter, We Care: Your well-being is important to the University of Florida. The U Matter, We Care initiative is committed to creating a culture of care on our campus by encouraging members of our community to look out for one another and to reach out for help if a member of our community is in need. If you or a friend is in distress, please contact umatter@ufl.edu so that the U Matter, We Care Team can reach out to the student in distress. A nighttime and weekend crisis counselor is available by phone at 352-392-1575. The U Matter, We Care Team can help connect students to the many other helping resources available including, but not limited to, Victim Advocates, Housing staff, and the Counseling and Wellness Center. Please remember that asking for help is a sign of strength. In case of emergency, call 9-1-1.
+\item Counseling and Wellness Center: \url{http://www.counseling.ufl.edu/cwc}, and 392-1575; and the University Police Department: 392-1111 or 9-1-1 for emergencies.
+\item Sexual Discrimination, Harassment, Assault, or Violence: If you or a friend has been subjected to sexual discrimination, sexual harassment, sexual assault, or violence contact the Office of Title IX Compliance, located at Yon Hall Room 427, 1908 Stadium Road, (352) 273-1094, title-ix@ufl.edu
+\item Sexual Assault Recovery Services (SARS) Student Health Care Center, 392-1161.
+\item University Police Department at 392-1111 (or 9-1-1 for emergencies), or \url{http://www.police.ufl.edu/}.
+\end{itemize}
+
+\subsection{Academic Resources}
+\begin{itemize}
+\item E-learning technical support, 352-392-4357 (select option 2) or e-mail to Learning-support@ufl.edu. \url{https://lss.at.ufl.edu/help.shtml}.
+\item Career Resource Center, Reitz Union, 392-1601. Career assistance and counseling. \\\url{https:// www.crc.ufl.edu/}.
+\item Library Support, \url{http://cms.uflib.ufl.edu/ask}. Various ways to receive assistance with respect to using the libraries or finding resources.
+\item Teaching Center, Broward Hall, 392-2010 or 392-6420. General study skills and tutoring. \url{https:// teachingcenter.ufl.edu/}.
+\item Writing Studio, 302 Tigert Hall, 846-1138. Help brainstorming, formatting, and writing papers. \url{https:// writing.ufl.edu/writing-studio/}.
+\item Student Complaints Campus: \\\url{https://www.dso.ufl.edu/documents/UF_Complaints_policy.pdf}. 
+\item On-Line Students Complaints: \\\url{http://www.distance.ufl.edu/student-complaint-process}.
+\end{itemize}
+
+\section{Recording}
+Students are allowed to record video or audio of class lectures. However, the purposes for which these recordings may be used are strictly controlled. The only allowable purposes are (1) for personal educational use, (2) in connection with a complaint to the university, or (3) as evidence in, or in preparation for, a criminal or civil proceeding. All other purposes are prohibited. Specifically, students may not publish recorded lectures without the written consent of the instructor.
+
+A \emph{class lecture} is an educational presentation intended to inform or teach enrolled students about a particular subject, including any instructor-led discussions that form part of the presentation, and delivered by any instructor hired or appointed by the University, or by a guest instructor, as part of a University of Florida course. A class lecture does not include lab sessions, student presentations, clinical presentations such as patient history, academic exercises involving solely student participation, assessments (quizzes, tests, exams), field trips, private conversations between students in the class or between a student and the faculty or lecturer during a class session.
+
+Publication without permission of the instructor is prohibited. To \emph{publish} means to share, transmit, circulate, distribute, or provide access to a recording, regardless of format or medium, to another person (or persons), including but not limited to another student within the same class section. Additionally, a recording, or transcript of a recording, is considered published if it is posted on or uploaded to, in whole or in part, any media platform, including but not limited to social media, book, magazine, newspaper, leaflet, or third party note/tutoring services. A student who publishes a recording without written consent may be subject to a civil cause of action instituted by a person injured by the publication and/or discipline under UF Regulation 4.040 Student Honor Code and Student Conduct Code.
+
+\section{Changelog}
+Any changes to the syllabus will be posted to canvas and summarized in this section.
+
+\end{document}
