@@ -1,7 +1,4 @@
 
-using Plots
-
-
 f(u, p, t) = begin
   ϕ₁ = p[1]*u[1]*u[2]/sum(u)
   ϕ₂ = p[2]*u[2]
@@ -28,6 +25,11 @@ t₁ = 1.0
 u₀ = [100.0, 1, 0]
 p = [25.0, 3.5]
 tsteps, soln = euler(f, u₀, p, (t₀,t₁), Δt)
+
+
+using Plots
+using PlotThemes
+theme(:sand, w=5)
 
 
 plot(tsteps, soln')
@@ -124,12 +126,25 @@ function newtoniteration(f, J, x₀, nsteps)
   end
   return x
 end
-newtoniteration(fsirs₁, Jsirs, soln[:, 250], 30)
+newtoniteration(fsirs₁, Jsirs, soln[:, 250], 10)
 
 
 try 
-  newtoniteration(fsirs₁, Jsirs, soln[:, 249], 3)
+  newtoniteration(fsirs₁, Jsirs, soln[:, 249], 10)
 catch SingularException
   println("Bad News Bears")
 end
 
+
+Jₑ = Jsirs(soln[:,end])
+
+
+Λ  = eigen(Jₑ)
+
+
+abs.(Λ.values)
+
+# (Λ.vectors*((Λ.values[1].^tsteps)' .* Λ.vectors[:,1]))'
+
+
+# plot(((Λ.values[1].^tsteps)' .* Λ.vectors[:,1])' )

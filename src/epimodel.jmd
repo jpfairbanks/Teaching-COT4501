@@ -1,13 +1,10 @@
 # Numerical Methods for Epidemic Models
 
-```julia
-using Plots
-```
-
 Given a differential equation
+
     u̇ = f(u,p,t)
-where u is the state vector, p is the parameter vector, and t is the current time.
-we call f a time varying parameterized vector field.
+
+where u is the state vector, p is the parameter vector, and t is the current time. We call f a time varying parameterized vector field.
 
 For example, the classic epidemiological model developed by Kermack and McKendrick, also known as the SIR model is time varying parameterized vector field. https://en.wikipedia.org/wiki/Kermack%E2%80%93McKendrick_theory is a time varying vector field. For further reading see https://www.maa.org/book/export/html/115609.
 
@@ -21,9 +18,13 @@ end
 
 The original technique for solving differential equations like this is to use Euler's method.
 This method is so elementary that it goes back to origins of calculus.
-A translation of Euler's work on calculus is available from Ian Bruce http://www.17centurymaths.com/contents/integralcalculusvol1.htm
+A translation of Euler's work on calculus is available from [Ian Bruce](http://www.17centurymaths.com/contents/integralcalculusvol1.htm)
+
+
 The idea for Euler's method comes directly from the definition of the derivative as the vector tangent to the curve.
-u̇ := lim u(t+Δt) - u(t) / Δt as Δt → 0
+
+    u̇ := lim u(t+Δt) - u(t) / Δt as Δt → 0
+
 If u̇(t) = f(u(t)), and u(t) is known, then u(t+Δt) ≈ u(t) + Δt⋅f(u(t))
 This approximation is the simplest possible Runge Kutta method. We will return to this at the end of the semester. 
 
@@ -53,6 +54,12 @@ tsteps, soln = euler(f, u₀, p, (t₀,t₁), Δt)
 ```
 
 We can plot the solution as a function of time. Each line is a different variable.
+
+```julia
+using Plots
+using PlotThemes
+theme(:default, w=5)
+```
 
 ```julia
 plot(tsteps, soln')
@@ -195,7 +202,7 @@ function newtoniteration(f, J, x₀, nsteps)
   end
   return x
 end
-newtoniteration(fsirs₁, Jsirs, soln[:, 250], 30)
+newtoniteration(fsirs₁, Jsirs, soln[:, 250], 10)
 ```
 
 The standard Newton method is quite brittle and will diverge for many starting guesses.
@@ -203,10 +210,26 @@ The quasi-netwon methods will fix this.
 
 ```julia
 try 
-  newtoniteration(fsirs₁, Jsirs, soln[:, 249], 3)
+  newtoniteration(fsirs₁, Jsirs, soln[:, 249], 10)
 catch SingularException
   println("Bad News Bears")
 end
 ```
 
 Other topics we will cover in this class are curve fitting and matrix algorithms. 
+
+```julia
+Jₑ = Jsirs(soln[:,end])
+```
+
+```julia
+Λ  = eigvals(Jₑ)
+```
+
+```julia
+abs.(Λ)
+```
+
+```julia
+plot(tsteps[1:end÷2], real.(exp.(-Λ'.*(tsteps[1:end÷2]))))
+```
