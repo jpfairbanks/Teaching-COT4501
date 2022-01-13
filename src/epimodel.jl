@@ -29,7 +29,7 @@ tsteps, soln = euler(f, u₀, p, (t₀,t₁), Δt)
 
 using Plots
 using PlotThemes
-theme(:sand, w=5)
+theme(:default, w=5)
 
 
 plot(tsteps, soln')
@@ -139,12 +139,11 @@ end
 Jₑ = Jsirs(soln[:,end])
 
 
-Λ  = eigen(Jₑ)
+Λ  = eigvals(Jₑ)
 
 
-abs.(Λ.values)
-
-# (Λ.vectors*((Λ.values[1].^tsteps)' .* Λ.vectors[:,1]))'
+abs.(Λ)
 
 
-# plot(((Λ.values[1].^tsteps)' .* Λ.vectors[:,1])' )
+plot(tsteps[1:end÷2], real.(exp.(-Λ'.*(tsteps[1:end÷2]))))
+
