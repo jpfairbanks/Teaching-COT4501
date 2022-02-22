@@ -59,6 +59,11 @@ angle₁(u - proj(SE, u))
 norm(u - 2proj(SE, u))
 angle₁(u - 2proj(SE, u))
 
+# Exercise 1: Draw out the picture of the examples above in the style of textbook Figure 3.3.
+
+# Exercise 2: Pick two additional vectors for defining your plane of reflection and two additional vectors to reflect.
+# Draw out the diagram and check that they angles are correct.
+
 """
 qrfact(A)
 
@@ -141,3 +146,9 @@ end
 
 A₃ = nearlylindep(ones(Float64, 6), 6, 10.0^-3)
 norm(qrfact₂(A₃)[1] - qrfact(A₃)[1])
+
+# Exercise 3: Benchmark the qrfact and qrfact₂ implementations with `@time` as the problem size increases. Remember to run the code twice and take the last time because of precompilation.
+# Plot the runtime and memory allocations as a function of problem size. Which one is faster? Does memory use drive runtime?
+
+@time qrfact(A₃);
+@time qrfact₂(A₃);
